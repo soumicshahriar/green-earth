@@ -60,7 +60,7 @@ const loadPlant = (id) => {
 
       activeBtn.classList.add("active");
 
-      console.log(activeBtn);
+      // console.log(activeBtn);
     });
 };
 
@@ -71,7 +71,7 @@ const displayPlant = (plants) => {
   plantContainer.innerHTML = "";
   //   console.log(plants);
   plants.forEach((plant) => {
-    console.log(plant);
+    // console.log(plant);
     // create the card
     const card = document.createElement("div");
     card.innerHTML = `
@@ -142,7 +142,7 @@ const showPlantDetailsModal = (plantsInfo) => {
 
 // load data for cart
 const addToCart = (id) => {
-  console.log(id);
+  // console.log(id);
   fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
     .then((res) => res.json())
     .then((data) => {
