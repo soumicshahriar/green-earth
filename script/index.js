@@ -1,6 +1,7 @@
 // load all tress
 // https://openapi.programming-hero.com/api/plants
 const loadAllTrees = () => {
+  loadSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/plants`)
     .then((res) => res.json())
     .then((data) => {
@@ -17,6 +18,7 @@ const loadAllTrees = () => {
 
 // load all categories
 const loadCategories = () => {
+  loadSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/categories`)
     .then((res) => res.json())
     .then((data) => displayCategories(data.categories));
@@ -38,10 +40,12 @@ const displayCategories = (categories) => {
 
     categoryContainer.appendChild(categoryBtn);
   });
+  loadSpinner(false);
 };
 
 // load Plant
 const loadPlant = (id) => {
+  loadSpinner(true);
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -73,7 +77,7 @@ const displayPlant = (plants) => {
     card.innerHTML = `
   <div class="card bg-base-100 shadow-sm p-4 flex flex-col md:h-[500px]">
     <figure class="w-full">
-      <img class="w-full h-48 md:h-full object-cover rounded-md"
+      <img class="w-full h-56 object-cover rounded-md"
         src="${plant.image}"
         alt="plant image" />
     </figure>
@@ -97,8 +101,18 @@ const displayPlant = (plants) => {
 
     plantContainer.appendChild(card);
   });
+  loadSpinner(false);
 };
 
+// load spinner
+const loadSpinner = (status) => {
+  const spinnerBtn = document.getElementById("load-spinner");
+  if (status == true) {
+    spinnerBtn.classList.remove("hidden");
+  } else {
+    spinnerBtn.classList.add("hidden");
+  }
+};
 // call load categories
 loadAllTrees();
 loadCategories();
