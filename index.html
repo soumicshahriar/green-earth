@@ -16,6 +16,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+    <!-- css styles -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+
 </head>
 
 <body class="bg-[#F0FDF4]">
@@ -80,12 +84,17 @@
             <!-- left section -->
             <section class="md:w-2/12 space-y-5">
                 <h2 class="font-semibold">All Categories</h2>
-                <div id="categories-container" class="space-y-2"></div>
+                <div id="categories-container" class="space-y-2">
+                    <button id="all-trees" onclick="loadAllTrees()"
+                        class="hover:bg-[#15803D] w-11/12 text-left rounded-lg px-2 hover:text-white p-2 category-btn">All
+                        Trees</button>
+                </div>
             </section>
 
 
             <!-- middle section -->
-            <section id="plant-container" class=" md:w-8/12 grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+            <section id="plant-container"
+                class=" md:w-8/12 grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch h-[600px]  overflow-auto">
 
             </section>
 

@@ -1,3 +1,20 @@
+// load all tress
+// https://openapi.programming-hero.com/api/plants
+const loadAllTrees = () => {
+  fetch(`https://openapi.programming-hero.com/api/plants`)
+    .then((res) => res.json())
+    .then((data) => {
+      displayPlant(data.plants);
+      const allTreesButton = document.getElementById("all-trees");
+
+      const categoryBtn = document.querySelectorAll(".category-btn");
+
+      // remove 'active' class from all buttons
+      categoryBtn.forEach((btn) => btn.classList.remove("active"));
+      allTreesButton.classList.add("active");
+    });
+};
+
 // load all categories
 const loadCategories = () => {
   fetch(`https://openapi.programming-hero.com/api/categories`)
@@ -16,7 +33,7 @@ const displayCategories = (categories) => {
     // create the button first for each category
     const categoryBtn = document.createElement("div");
     categoryBtn.innerHTML = `
-        <button onclick=loadPlant(${category.id}) class="hover:bg-[#15803D] w-11/12 text-left rounded-lg px-2 hover:text-white p-2">${category.category_name}</button>
+        <button id="category-btn-${category.id}" onclick=loadPlant(${category.id}) class="hover:bg-[#15803D] w-11/12 text-left rounded-lg px-2 hover:text-white p-2 category-btn">${category.category_name}</button>
     `;
 
     categoryContainer.appendChild(categoryBtn);
@@ -28,7 +45,19 @@ const loadPlant = (id) => {
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayPlant(data.plants));
+    .then((data) => {
+      displayPlant(data.plants);
+      // implement active status
+      const activeBtn = document.getElementById(`category-btn-${id}`);
+      const categoryBtn = document.querySelectorAll(".category-btn");
+
+      // remove 'active' class from all buttons
+      categoryBtn.forEach((btn) => btn.classList.remove("active"));
+
+      activeBtn.classList.add("active");
+
+      console.log(activeBtn);
+    });
 };
 
 // display plant
@@ -36,12 +65,13 @@ const displayPlant = (plants) => {
   // get the container first
   const plantContainer = document.getElementById("plant-container");
   plantContainer.innerHTML = "";
+  //   console.log(plants);
   plants.forEach((plant) => {
     console.log(plant);
     // create the card
     const card = document.createElement("div");
     card.innerHTML = `
-  <div class="card bg-base-100 shadow-sm p-4 flex flex-col md:h-[380px]">
+  <div class="card bg-base-100 shadow-sm p-4 flex flex-col md:h-[500px]">
     <figure class="w-full">
       <img class="w-full h-48 md:h-full object-cover rounded-md"
         src="${plant.image}"
@@ -70,4 +100,5 @@ const displayPlant = (plants) => {
 };
 
 // call load categories
+loadAllTrees();
 loadCategories();
