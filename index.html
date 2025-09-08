@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="bg-[#F0FDF4]">
     <header>
         <!-- navbar start -->
         <nav class="navbar bg-[#15803D] shadow-sm md:px-[135px]">
@@ -54,11 +54,11 @@
         <!-- navbar end -->
 
         <!-- banner start-->
-        <section class="flex items-center bg-[#CFF0DC]">
-            <div>
+        <section class="md:flex items-center bg-[#CFF0DC] py-10 md:py-0">
+            <div class="hidden md:block">
                 <img src="./assets/hero-leaf1.png" alt="">
             </div>
-            <div class="space-y-5 text-center">
+            <div class="space-y-5 text-center ">
                 <div>
                     <h3 class="font-bold text-xl">Plant a Tree, Grow a Future</h3>
                     <span class="opacity-70">Join our mission to plant 1 million trees and make the Earth greener for
@@ -66,13 +66,107 @@
                         generations.</span>
                 </div>
                 <div>
-                    <a class="px-5 py-3 rounded-[999px] bg-[#facc15] text-[#15803d]">Get Involved </a>
+                    <a class="px-5 py-3 text-sm rounded-[999px] bg-[#facc15] text-[#15803d]">Get Involved </a>
                 </div>
             </div>
-            <div><img src="./assets/hero-leaf2.png" alt=""></div>
+            <div class="hidden md:block"><img src="./assets/hero-leaf2.png" alt=""></div>
         </section>
         <!-- banner end -->
     </header>
+
+    <main class="mt-10 ">
+        <h3 class="text-center font-semibold">Choose Your Trees</h3>
+        <section class="md:flex md:w-11/12 mx-auto">
+            <!-- left section -->
+            <section class="md:w-2/12 space-y-5">
+                <h2 class="font-semibold">All Categories</h2>
+                <div id="categories-container" class="space-y-2"></div>
+            </section>
+
+
+            <!-- middle section -->
+            <section id="plant-container" class=" md:w-8/12 grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+
+            </section>
+
+
+            <!-- right section -->
+            <section class="bg-blue-600 h-60 md:w-2/12">
+                <h2 class="font-semibold">Your Cart</h2>
+                <div id="categories-container">
+
+                </div>
+            </section>
+        </section>
+
+
+        <!-- about the campaign -->
+        <section class="md:w-7/12 mx-auto text-center my-30 ">
+            <h2 class="font-semibold text-xl">About the Campaign</h2>
+            <div class="md:flex gap-10 items-center my-10 space-y-5">
+                <img class="w-[430px]" src="./assets/about.png" alt="about-image">
+                <div class="opacity-75 text-left space-y-5">
+                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
+                        our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
+                        forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="text-left">
+                        <li class="list-disc list-inside">Restoration of natural habitats</li>
+                        <li class="list-disc list-inside">Improvement of air quality</li>
+                        <li class="list-disc list-inside">Support for local communities</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- our impact -->
+        <section class="bg-[#CFF0DC] text-center space-y-5 px-30 py-25">
+            <h2 class="font-semibold text-xl">Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 justify-between gap-5">
+                <div class="text-center bg-white px-10 py-10 rounded-md space-y-3">
+                    <h3 class="text-[#15803D] font-bold text-xl">500K+</h3>
+                    <p class="opacity-70">Trees Planted</p>
+                </div>
+                <div class="text-center bg-white px-10 py-10 rounded-md space-y-3">
+                    <h3 class="text-[#15803D] font-bold text-xl">120+</h3>
+                    <p class="opacity-70">Communities Involved</p>
+                </div>
+                <div class="text-center bg-white px-10 py-10 rounded-md space-y-3">
+                    <h3 class="text-[#15803D] font-bold text-xl">30+</h3>
+                    <p class="opacity-70">Countries Reached</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Plant a tree today -->
+        <section class="bg-[#166534] text-center text-white space-y-5 px-30 py-25">
+            <h2 class="font-semibold text-xl">Plant a Tree Today</h2>
+            <form class="flex flex-col gap-4 bg-[#15803D] shadow-md text-black p-10 rounded-lg md:w-6/12 mx-auto">
+                <input class="border-none bg-white p-2 rounded-md  focus:outline-none" type="text"
+                    placeholder="Your Name">
+                <input class="border-none bg-white p-2 rounded-md focus:outline-none" type="email"
+                    placeholder="Your Email Address">
+                <select class="border-none bg-white p-2 rounded-md focus:outline-none">
+                    <option disabled selected>Number Of Trees</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <a class="px-5 py-3 text-sm rounded-[999px] bg-[#facc15] text-[#15803d]">Donate Now </a>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-[#14532D] p-4">
+        <p class="text-center text-white">© 2025 Green Earth. All Rights Reserved.</p>
+    </footer>
+
+
+
+
+    <!-- script js -->
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
