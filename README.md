@@ -1,3 +1,74 @@
+
+## 1. Difference between `var`, `let`, and `const`
+
+- **`var`**
+  - Function-scoped.
+  - Can be redeclared and updated.
+  - Hoisted (moved to the top of its scope) but initialized as `undefined`.
+
+- **`let`**
+  - Block-scoped (only available inside `{ }`).
+  - Can be updated but not redeclared in the same scope.
+  - Hoisted but not initialized (exists in the *Temporal Dead Zone* until declared).
+
+- **`const`**
+  - Block-scoped.
+  - Cannot be reassigned after declaration.
+  - Must be initialized when declared.
+  - If assigned an object or array, the reference cannot change, but properties/elements inside can be modified.
+
+---
+
+## 2. Difference between `map()`, `forEach()`, and `filter()`
+
+- **`map()`**
+  - Creates a new array by transforming each element.
+  - Returns a new array of the same length.
+  - Example:  
+    ```js
+    const nums = [1, 2, 3];
+    const doubled = nums.map(x => x * 2);
+    console.log(doubled); // [2, 4, 6]
+    ```
+
+- **`forEach()`**
+  - Executes a function for each array element.
+  - Does **not** return a new array (returns `undefined`).
+  - Example:  
+    ```js
+    const nums = [1, 2, 3];
+    nums.forEach(x => console.log(x * 2)); 
+    // Output: 2, 4, 6
+    ```
+
+- **`filter()`**
+  - Creates a new array with elements that match a condition.
+  - Returns a subset of the original array.
+  - Example:  
+    ```js
+    const nums = [1, 2, 3, 4];
+    const evens = nums.filter(x => x % 2 === 0);
+    console.log(evens); // [2, 4]
+    ```
+
+---
+
+## 3. Arrow Functions in ES6
+
+- Provide a shorter syntax for writing functions.
+- Do not have their own `this` (they inherit from the enclosing scope).
+- Cannot be used as constructors.
+  
+## 4. How does destructuring assignment work in ES6?
+ - Destructuring assignment in ES6 allows you to unpack values from arrays or properties from objects and assign them to variables in a simpler, cleaner way.
+ - 
+## 5. Explain template literals in ES6. How are they different from string concatenation?
+
+ - Template literals are a new way to create strings in ES6 using backticks (`) instead of quotes.
+ - They allow you to embed variables and expressions directly into a string with ${ }.
+
+
+
 ## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
 
 ### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
