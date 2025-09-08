@@ -93,7 +93,7 @@ const displayPlant = (plants) => {
       </div>
 
       <div class="card-actions mt-3">
-        <button class="btn bg-[#15803d] text-white w-full rounded-full">Add to Cart</button>
+        <button onclick='addToCart(${plant.id})' class="btn bg-[#15803d] text-white w-full rounded-full">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -138,6 +138,62 @@ const showPlantDetailsModal = (plantsInfo) => {
 `;
 
   document.getElementById("my_modal_5").showModal();
+};
+
+// load data for cart
+const addToCart = (id) => {
+  console.log(id);
+  fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      calculateCartDetails(data.plants);
+    });
+};
+
+// calculate cart details
+let totalPrice = 0;
+const calculateCartDetails = (items) => {
+  const cartContainer = document.getElementById("cart-container");
+  const totalContainer = document.getElementById("total-container");
+  const price = items.price;
+  totalPrice += price;
+
+  const cartDiv = document.createElement("div");
+  // console.log(totalPrice);
+  cartDiv.innerHTML = `
+                    <div class="flex justify-between items-center bg-[#F0FDF4] p-2 rounded-md">
+                        <div>
+                            <h2 class="font-semibold">${items.name}</h2>
+                            <p>${items.price} x 1</p>
+                        </div>
+                        <i onclick=removeFromCart(${items.id}) class="fa-solid fa-xmark hover:cursor-pointer"></i>
+                    </div>
+
+               
+                
+  `;
+
+  // remove button handle
+  const removeBtn = cartDiv.querySelector("i");
+  removeBtn.addEventListener("click", () => {
+    cartDiv.remove();
+    totalPrice -= price;
+    updateTotal(totalContainer);
+  });
+  cartContainer.appendChild(cartDiv);
+
+  updateTotal(totalContainer);
+};
+
+// function to update the total price
+const updateTotal = (totalContainer) => {
+  totalContainer.innerHTML = `
+    <hr>
+    <div class="flex justify-between items-center">
+        <h3 class="font-semibold">Total</h3>
+        <p>৳ ${totalPrice}</p>
+    </div>
+  `;
 };
 
 // load spinner

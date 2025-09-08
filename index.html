@@ -105,11 +105,14 @@
 
 
             <!-- right section -->
-            <section class="bg-blue-600 h-60 md:w-2/12">
+            <section class="md:w-2/12 px-4 bg-white">
                 <h2 class="font-semibold">Your Cart</h2>
-                <div id="categories-container">
+                <div id="cart-container" class="p-4 space-y-2">
 
                 </div>
+
+                <!-- total container -->
+                <div id="total-container"></div>
             </section>
         </section>
 
@@ -119,11 +122,11 @@
             <h2 class="font-semibold text-xl">About the Campaign</h2>
             <div class="md:flex gap-10 items-center my-10 space-y-5">
                 <img class="w-[430px]" src="./assets/about.png" alt="about-image">
-                <div class="opacity-75 text-left space-y-5">
+                <div class="opacity-75 md:text-left space-y-5">
                     <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
                         our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
                         forests, create habitats for wildlife, and combat global warming.</p>
-                    <ul class="text-left">
+                    <ul class="md:text-left">
                         <li class="list-disc list-inside">Restoration of natural habitats</li>
                         <li class="list-disc list-inside">Improvement of air quality</li>
                         <li class="list-disc list-inside">Support for local communities</li>
@@ -134,7 +137,7 @@
         </section>
 
         <!-- our impact -->
-        <section class="bg-[#CFF0DC] text-center space-y-5 px-30 py-25">
+        <section class="bg-[#CFF0DC] text-center space-y-5 md:px-30 md:py-25 py-10">
             <h2 class="font-semibold text-xl">Our Impact</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 justify-between gap-5">
                 <div class="text-center bg-white px-10 py-10 rounded-md space-y-3">
@@ -154,7 +157,7 @@
 
 
         <!-- Plant a tree today -->
-        <section class="bg-[#166534] text-center text-white space-y-5 px-30 py-25">
+        <section class="bg-[#166534] text-center text-white space-y-5 md:px-30 md:py-25 py-10 px-5">
             <h2 class="font-semibold text-xl">Plant a Tree Today</h2>
             <form class="flex flex-col gap-4 bg-[#15803D] shadow-md text-black p-10 rounded-lg md:w-6/12 mx-auto">
                 <input class="border-none bg-white p-2 rounded-md  focus:outline-none" type="text"
