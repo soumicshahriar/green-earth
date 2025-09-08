@@ -82,7 +82,7 @@ const displayPlant = (plants) => {
         alt="plant image" />
     </figure>
     <div class="flex flex-col flex-1 mt-2">
-      <h2 class="card-title text-lg font-semibold">${plant.name}</h2>
+      <h2 onclick=plantDetails(${plant.id})  class="card-title text-lg font-semibold cursor-pointer">${plant.name}</h2>
       <p class="flex-1 line-clamp-3 text-sm text-gray-600">${plant.description}</p>
 
       <div class="flex justify-between items-center mt-2">
@@ -102,6 +102,42 @@ const displayPlant = (plants) => {
     plantContainer.appendChild(card);
   });
   loadSpinner(false);
+};
+
+// show single plant details
+const plantDetails = (id) => {
+  fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+    .then((res) => res.json())
+    .then((data) => showPlantDetailsModal(data.plants));
+};
+
+// display modal
+const showPlantDetailsModal = (plantsInfo) => {
+  const modalContainer = document.getElementById("details-container");
+  modalContainer.innerHTML = `
+  <div class="card bg-base-100 shadow-sm p-4 flex flex-col md:h-[500px] space-y-5">
+    <h2 class="card-title text-lg font-semibold cursor-pointer">${plantsInfo.name}</h2>
+    <figure class="w-full">
+      <img class="w-full h-56 object-cover rounded-md"
+        src="${plantsInfo.image}"
+        alt="plant image" />
+    </figure>
+    <div class="flex flex-col flex-1 ">
+        <div>
+        <p class=""><span class='font-semibold'>Category: </span>${plantsInfo.category}</p>
+            <p>
+            <span class='font-semibold'>Price: </span> <span class=" text-xl">৳</span>  ${plantsInfo.price}
+            </p>
+        </div>
+        <div class="flex justify-between items-center mt-2">
+            <p class="flex-1 line-clamp-3 text-sm "><span class='font-semibold'>Description: </span>${plantsInfo.description}</p>
+        </div>
+      
+    </div>
+  </div>
+`;
+
+  document.getElementById("my_modal_5").showModal();
 };
 
 // load spinner
